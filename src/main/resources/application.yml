@@ -1,0 +1,19 @@
+spring: 
+  application:
+    name: template
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/template
+    username: root
+    password: 123456
+    
+server: 
+  port: 8088
+  tomcat:
+    uri-encoding: UTF-8
+    max-threads: 400
+    accept-count: 800
+    max-connections: 10000
+  timeout: 10000
+  session:
+    timeout: 1800
