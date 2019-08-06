@@ -1,19 +1,10 @@
 package com.samllrain.template;
 
-import java.util.List;
-import java.util.Random;
-
-import org.junit.Assert;
-import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.smallrain.template.TemplateApplication;
-import com.smallrain.template.user.User.entity.User;
-import com.smallrain.template.user.User.mapper.UserMapper;
-import com.smallrain.template.utils.BaseUtils;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -21,7 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = TemplateApplication.class)
 public class TemplateApplicationTests {
-
+/*
   @Autowired
   private UserMapper userMapper;
   
@@ -48,6 +39,6 @@ public class TemplateApplicationTests {
     user.setName(BaseUtils.getRandomString(10,"",""));
     user.setEmail(BaseUtils.getRandomString(8,"","@qq.com"));
     return  user;
-  }
+  }*/
   
 }
