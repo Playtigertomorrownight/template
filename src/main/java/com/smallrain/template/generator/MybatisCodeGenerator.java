@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
@@ -42,20 +43,27 @@ public class MybatisCodeGenerator {
     globalConfig.setAuthor("wangying");
     globalConfig.setOpen(false);
     globalConfig.setSwagger2(true); // 实体属性 Swagger2 注解
+    globalConfig.setFileOverride(true);
+    globalConfig.setActiveRecord(true);// 不需要ActiveRecord特性的请改为false
+    globalConfig.setEnableCache(false);// XML 二级缓存
+    globalConfig.setBaseResultMap(true);// XML ResultMap
+    globalConfig.setBaseColumnList(false);// XML columList
+    // .setKotlin(true) 是否生成 kotlin 代码
     autoGenerator.setGlobalConfig(globalConfig);
 
     // 数据库配置
     DataSourceConfig dataSourceConfig = new DataSourceConfig();
-    dataSourceConfig.setUrl("jdbc:mysql://localhost:3306/template?useUnicode=true&useSSL=false&characterEncoding=utf8");
+    dataSourceConfig.setDbType(DbType.MYSQL);
+    dataSourceConfig.setUrl("jdbc:mysql://106.12.204.7:3306/template?useUnicode=true&useSSL=false&characterEncoding=utf8");
     dataSourceConfig.setDriverName("com.mysql.cj.jdbc.Driver");
-    dataSourceConfig.setUsername("root");
+    dataSourceConfig.setUsername("template");
     dataSourceConfig.setPassword("123456");
     autoGenerator.setDataSource(dataSourceConfig);
 
     // 包配置
     PackageConfig packageConfig = new PackageConfig();
     packageConfig.setModuleName(scanner("实体名称"));
-    packageConfig.setParent("com.smallrain.template.user");
+    packageConfig.setParent("com.smallrain.template");
     autoGenerator.setPackageInfo(packageConfig);
 
     // 自定义配置
@@ -97,6 +105,7 @@ public class MybatisCodeGenerator {
     
    // 策略配置
     StrategyConfig strategy = new StrategyConfig();
+    strategy.setCapitalMode(true);// 全局大写命名 ORACLE 注意
     strategy.setNaming(NamingStrategy.underline_to_camel);
     strategy.setColumnNaming(NamingStrategy.underline_to_camel);
     //strategy.setSuperEntityClass("com.baomidou.ant.common.BaseEntity");

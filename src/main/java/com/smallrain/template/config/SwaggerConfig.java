@@ -38,7 +38,7 @@ public class SwaggerConfig {
 
   private ApiInfo apiInfo() {
     return new ApiInfoBuilder()
-        .title("公众号发布服务 API ")
+        .title("模板服务 API ")
         .description("restful 风格API")
         .termsOfServiceUrl("http://localhost:8080/")
         .version("1.0")
